@@ -4,7 +4,7 @@ export default async function Home() {
   // Get user's IP and country using ipapi.co
   const response = await fetch('https://ipapi.co/json/'); // Removed ${ip} - this endpoint automatically detects client IP
   const data = await response.json();
-  const country = data.country_code;
+  const country = data.country_name;
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
