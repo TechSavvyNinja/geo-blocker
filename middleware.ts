@@ -21,8 +21,8 @@ export async function middleware(req: NextRequest) {
 
   const country = await getCountryFromIP(ip);
 
-  if (country !== "US") {
-    return new Response("Access denied: Only available in the USA", {
+  if (country === "US") {
+    return new Response("Access denied: Not available in the USA", {
       status: 403,
     });
   }
