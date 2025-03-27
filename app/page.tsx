@@ -1,9 +1,19 @@
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  // Get user's country from request headers
+  const response = await fetch('https://api.ipapi.com/api/json/');
+  const data = await response.json();
+  const country = data.country_code;
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        {/* Welcome message with country */}
+        <div className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+          Welcome, visitor from {country}! 👋
+        </div>
+
         <Image
           className="dark:invert"
           src="/next.svg"
