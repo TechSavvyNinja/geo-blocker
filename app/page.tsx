@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 export default async function Home() {
-  // Get user's country from request headers
-  const response = await fetch('https://api.ipapi.com/api/json/');
+  // Get user's IP and country using ipapi.co
+  const response = await fetch('https://ipapi.co/json/'); // Removed ${ip} - this endpoint automatically detects client IP
   const data = await response.json();
   const country = data.country_code;
 
